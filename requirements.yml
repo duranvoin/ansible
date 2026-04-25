@@ -1,0 +1,15 @@
+---
+roles:
+  - name: 'base-package-install'
+    src: "git+https://github.com/duranvoin/base-package-install"
+    version: '1.2'
+  - name: 'k8s-provision'
+    src: "git+https://github.com/duranvoin/k8s-provision"
+
+collections:
+  - name: 'ansible.posix'
+    version: '2.1.0'
+  - name: 'community.general'
+    version: '12.6.0'
+  - name: 'kubernetes.core'
+    version: '6.3.0'

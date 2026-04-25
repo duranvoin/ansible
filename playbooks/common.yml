@@ -1,0 +1,26 @@
+---
+- name: Check and setup hosts
+  hosts: all
+  gather_facts: false
+  become: true
+  pre_tasks:
+    - name: Collect required facts
+      ansible.builtin.setup:
+        gather_subset:
+          - 'distribution'
+          - 'hardware'
+      become: false
+    - name: Check OS distribution
+      ansible.builtin.fail:
+        msg: "Support only Debian-based Linux distros! Your family is - {{ ansible_facts['os_family'] }}!"
+      when: ansible_facts['os_family'] != 'Debian'
+      become: false
+  roles:
+    - base-package-install
+
+- name: Setup and provision k8s nodes
+  hosts: k8s
+  gather_facts: false
+  become: true
+  roles:
+    - k8s-provision
