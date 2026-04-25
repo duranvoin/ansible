@@ -5,7 +5,7 @@ roles:
     version: '1.2'
   - name: 'k8s-provision'
     src: "git+https://github.com/duranvoin/k8s-provision"
-
+    version: '1.0'
 collections:
   - name: 'ansible.posix'
     version: '2.1.0'

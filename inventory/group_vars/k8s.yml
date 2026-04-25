@@ -1,0 +1,11 @@
+---
+base_package_install__specific_packages: # for base-package-install role
+  - make
+  - gcc
+  - linux-libc-dev
+  - pkg-config
+  - git
+  - apt-transport-https
+  - ca-certificates
+  - gnupg
+  - python3-pip
